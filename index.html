@@ -9,7 +9,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="description" content="An independent, offline PRINCE2 7 Foundation study app with original practice questions and timed mock exams.">
   <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <link rel="apple-touch-icon" href="./icons/icon.svg">
   <title>Just Prince2 Study App | PRINCE2 7 Foundation</title>
   <style>
     :root{--ink:#162239;--navy:#101e37;--muted:#65738a;--muted2:#8b99ab;--blue:#355eea;--blue2:#eaf0ff;--purple:#7458f2;--canvas:#f6f7fb;--surface:#fff;--line:#e6eaf1;--green:#16835e;--greenbg:#e8f8f1;--red:#bf4455;--redbg:#fff0f1;--amber:#9d640a;--amberbg:#fff6df;--shadow:0 10px 30px rgba(18,37,65,.045);--radius:18px}
@@ -466,7 +466,7 @@ body.v7-reader-open{overflow:hidden;overscroll-behavior:none}
 <body>
 <div class="shell">
   <aside class="sidebar" aria-label="Primary navigation">
-    <div class="brand"><div class="brand-mark">P²</div><div><div class="brand-name">Revision Studio</div><div class="brand-sub">PRINCE2 FOUNDATION 7</div></div></div>
+    <div class="brand"><div class="brand-mark">P²</div><div><div class="brand-name">Just Prince2 Study App</div><div class="brand-sub">PRINCE2 FOUNDATION 7</div></div></div>
     <button class="mobile-menu-btn" id="mobileMenu" data-action="toggle-mobile-menu" aria-controls="nav" aria-expanded="false">All sections &#9662;</button><div class="nav-label">Your workspace</div>
     <nav id="nav" class="nav"></nav>
     <div class="side-bottom"><strong>Built for your Foundation revision</strong>Personal study notes • v7.2 syllabus<br>Independent study companion</div>
@@ -3309,6 +3309,12 @@ v5CreateTimed=function(config){if(config?.mode==='shared'){go('syllabus16');retu
 v5PDF=function(){go('documents')};
 v12Source=function(){go('documents')};
 v7ReaderOpen=function(){go('documents')};
+
+/* Public web edition: resource links and accurate installation guidance. */
+v5Install=function(){return frame('Use Just Prince2 Study App on your phone','This public browser edition includes the original questions, teaching chapters and games. It does not bundle third-party copyrighted PDFs.','WEB / PWA EDITION')+'<section class="panel"><h3>Install the web app</h3><p>On Android, visit the GitHub Pages site using Chrome and choose <strong>Install app</strong> or <strong>Add to Home screen</strong>. On iPhone, open Safari, choose Share, then Add to Home Screen.</p><p>Offline caching is available after the site has loaded. Your progress is kept in the browser storage for this edition, so export a backup before switching browser or phone.</p><p>The private course PDF library is not included in this public repo. Use the official source links for authorised materials.</p><div class="actions-row"><a class="btn btn-primary" href="bank/index.html">Browse 820 questions</a><a class="btn btn-outline" href="research/index.html">Research question bank</a></div></section>'};
+const publicBaseHome=home;
+home=function(){return '<div class="panel" style="background:#eff6ff;border-color:#d6e6fd;margin-bottom:16px"><span class="tag blue">JUST PRINCE2 STUDY APP · WEB EDITION</span><h3 style="margin:12px 0 7px">Explore the original question banks</h3><p style="font-size:13px">Use this full study app, or browse and download the original questions and research-led subset as separate resources.</p><div class="actions-row"><a class="btn btn-primary btn-sm" href="bank/index.html">820-question bank</a><a class="btn btn-outline btn-sm" href="research/index.html">425 research-led questions</a></div></div>'+publicBaseHome()};
+
 render();
 
 </script>

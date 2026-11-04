@@ -1,0 +1,18 @@
+{
+  "name": "Just Prince2 Study App",
+  "short_name": "Just Prince2",
+  "description": "Independent PRINCE2 7 Foundation learning app with 820 original questions and study games",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f7fb",
+  "theme_color": "#101e37",
+  "icons": [
+    {
+      "src": "./icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

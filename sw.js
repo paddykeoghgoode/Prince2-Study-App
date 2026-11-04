@@ -1,0 +1,6 @@
+/* Public PWA cache: no licensed course PDFs included. */
+const CACHE='just-prince2-public-v16-web-20261104';
+const FILES=['./','./index.html','./manifest.webmanifest','./icons/icon.svg','./bank/index.html','./research/index.html','./assets/bank-viewer.css','./assets/bank-viewer.js','./data/questions.json','./data/manifest.json','./research/research-questions.json'];
+self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(FILES)).then(()=>self.skipWaiting()))});
+self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('just-prince2-public-')&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim()))});
+self.addEventListener('fetch',event=>{if(event.request.method!=='GET')return;const url=new URL(event.request.url);if(url.origin!==location.origin)return;event.respondWith(caches.match(event.request).then(hit=>hit||fetch(event.request).then(response=>{if(response.ok){const copy=response.clone();caches.open(CACHE).then(cache=>cache.put(event.request,copy)).catch(()=>{});}return response;}).catch(()=>new Response('Offline resource unavailable',{status:503,headers:{'Content-Type':'text/plain'}}))))});
