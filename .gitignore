@@ -1,0 +1,7 @@
+*.keystore
+*.jks
+*.pem
+.gradle/
+.idea/
+**/build/
+.DS_Store

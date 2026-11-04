@@ -1,0 +1,22 @@
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'org.justprince2.studyapp.publicv016'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'org.justprince2.studyapp.publicv016'
+        minSdk 24
+        targetSdk 32
+        versionCode 16
+        versionName '16-public'
+    }
+
+    sourceSets { main { assets.srcDirs = ['src/main/assets'] } }
+}
+
+tasks.register('syncStudyApp', Copy) {
+    from(rootProject.file('../index.html'))
+    into(layout.projectDirectory.dir('src/main/assets'))
+}
+tasks.named('preBuild') { dependsOn 'syncStudyApp' }
